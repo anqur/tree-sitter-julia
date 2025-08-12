@@ -94,10 +94,10 @@ const OPERATORS = {
 const ESCAPE_SEQUENCE = token(seq(
   '\\',
   choice(
-    /[^uUx0-7]/,
     /[uU][0-9a-fA-F]{1,6}/, // unicode codepoints
     /[0-7]{1,3}/,
     /x[0-9a-fA-F]{2}/,
+    /./,
   ),
 ));
 

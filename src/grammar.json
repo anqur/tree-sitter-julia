@@ -3999,10 +3999,6 @@
             "members": [
               {
                 "type": "PATTERN",
-                "value": "[^uUx0-7]"
-              },
-              {
-                "type": "PATTERN",
                 "value": "[uU][0-9a-fA-F]{1,6}"
               },
               {
@@ -4012,6 +4008,10 @@
               {
                 "type": "PATTERN",
                 "value": "x[0-9a-fA-F]{2}"
+              },
+              {
+                "type": "PATTERN",
+                "value": "."
               }
             ]
           }
@@ -4048,10 +4048,6 @@
                       "members": [
                         {
                           "type": "PATTERN",
-                          "value": "[^uUx0-7]"
-                        },
-                        {
-                          "type": "PATTERN",
                           "value": "[uU][0-9a-fA-F]{1,6}"
                         },
                         {
@@ -4061,6 +4057,10 @@
                         {
                           "type": "PATTERN",
                           "value": "x[0-9a-fA-F]{2}"
+                        },
+                        {
+                          "type": "PATTERN",
+                          "value": "."
                         }
                       ]
                     }
@@ -7809,5 +7809,6 @@
     "_expression",
     "_statement",
     "_definition"
-  ]
+  ],
+  "reserved": {}
 }
