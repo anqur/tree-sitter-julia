@@ -94,10 +94,10 @@ const OPERATORS = {
 const ESCAPE_SEQUENCE = token(seq(
   '\\',
   choice(
-    /[^uUx0-7]/,
     /[uU][0-9a-fA-F]{1,6}/, // unicode codepoints
     /[0-7]{1,3}/,
     /x[0-9a-fA-F]{2}/,
+    /./,
   ),
 ));
 
@@ -380,7 +380,7 @@ module.exports = grammar({
       'try',
       optional($._terminator),
       optional($._block),
-      choice(
+      optional(choice(
         seq(
           $.catch_clause,
           optional($.else_clause),
@@ -391,7 +391,7 @@ module.exports = grammar({
           optional($.catch_clause),
           // `else` is not valid here.
         ),
-      ),
+      )),
       'end',
     ),
 
@@ -604,6 +604,7 @@ module.exports = grammar({
         $.generator,
       )),
       optional(','),
+      optional($._semicolon),
     ),
 
     curly_expression: $ => seq(
@@ -957,14 +958,14 @@ module.exports = grammar({
 
     escape_sequence: _ => ESCAPE_SEQUENCE,
 
-    character_literal: _ => token(seq(
+    character_literal: $ => seq(
       '\'',
       choice(
         /[^'\\]/,
-        ESCAPE_SEQUENCE,
+        $.escape_sequence,
       ),
       '\'',
-    )),
+    ),
 
     _delimiter_str_1: _ => '"',
     _delimiter_str_3: _ => '"""',
