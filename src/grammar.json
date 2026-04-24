@@ -236,10 +236,6 @@
         },
         {
           "type": "SYMBOL",
-          "name": "juxtaposition_expression"
-        },
-        {
-          "type": "SYMBOL",
           "name": "ternary_expression"
         },
         {
@@ -3565,36 +3561,6 @@
           {
             "type": "SYMBOL",
             "name": "_bracket_form"
-          }
-        ]
-      }
-    },
-    "juxtaposition_expression": {
-      "type": "PREC_LEFT",
-      "value": 0,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "integer_literal"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "float_literal"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "adjoint_expression"
-              }
-            ]
-          },
-          {
-            "type": "SYMBOL",
-            "name": "_primary_expression"
           }
         ]
       }
@@ -7702,14 +7668,6 @@
     }
   ],
   "conflicts": [
-    [
-      "juxtaposition_expression",
-      "_primary_expression"
-    ],
-    [
-      "juxtaposition_expression",
-      "_expression"
-    ],
     [
       "matrix_row",
       "comprehension_expression"

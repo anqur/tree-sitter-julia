@@ -6,3 +6,4 @@ My personal fork of [tree-sitter-julia](https://github.com/tree-sitter/tree-sitt
 * `character_literal` is not a token, and contains the rule `escape_sequence`.
 * `try_statement` with optional `catch` for recovery.
 * Optional trailing `;` in `tuple_expression`, for correct function signatures.
+* Remove `juxtaposition_expression` since it makes `matrix_expression` unable to work.

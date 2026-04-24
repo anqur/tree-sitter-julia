@@ -162,8 +162,6 @@ module.exports = grammar({
   ],
 
   conflicts: $ => [
-    [$.juxtaposition_expression, $._primary_expression], // adjoint
-    [$.juxtaposition_expression, $._expression],
     [$.matrix_row, $.comprehension_expression], // Comprehensions with newlines
     [$.parenthesized_expression, $.tuple_expression],
   ],
@@ -235,7 +233,6 @@ module.exports = grammar({
       $.compound_assignment_expression,
       $.macrocall_expression,
       $.arrow_function_expression,
-      $.juxtaposition_expression,
       $.ternary_expression,
       $.operator,
       $.integer_literal,
@@ -830,15 +827,6 @@ module.exports = grammar({
       ),
       '->',
       $._bracket_form,
-    )),
-
-    juxtaposition_expression: $ => prec.left(seq(
-      choice(
-        $.integer_literal,
-        $.float_literal,
-        $.adjoint_expression,
-      ),
-      $._primary_expression,
     )),
 
     compound_assignment_expression: $ => prec.right(PREC.assign, seq(
