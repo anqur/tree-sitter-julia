@@ -1847,8 +1847,8 @@
             "type": "CHOICE",
             "members": [
               {
-                "type": "STRING",
-                "value": "outer"
+                "type": "SYMBOL",
+                "name": "identifier"
               },
               {
                 "type": "BLANK"
