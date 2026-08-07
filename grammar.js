@@ -707,6 +707,7 @@ module.exports = grammar({
     quote_expression: $ => prec.right(PREC.prefix, seq(
       ':',
       choice(
+        "function",
         $.integer_literal,
         $.float_literal,
         $._string,
@@ -889,6 +890,8 @@ module.exports = grammar({
     },
 
     identifier: $ => $._word_identifier,
+
+    symbol_literal: $ => seq(token.immediate(':'), $.identifier),
 
     // Literals
 

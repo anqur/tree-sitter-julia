@@ -2715,6 +2715,10 @@
             "type": "CHOICE",
             "members": [
               {
+                "type": "STRING",
+                "value": "function"
+              },
+              {
                 "type": "SYMBOL",
                 "name": "integer_literal"
               },
@@ -3714,6 +3718,22 @@
     "identifier": {
       "type": "SYMBOL",
       "name": "_word_identifier"
+    },
+    "symbol_literal": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "IMMEDIATE_TOKEN",
+          "content": {
+            "type": "STRING",
+            "value": ":"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
     },
     "boolean_literal": {
       "type": "CHOICE",

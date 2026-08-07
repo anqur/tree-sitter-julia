@@ -8,3 +8,4 @@ My personal fork of [tree-sitter-julia](https://github.com/tree-sitter/tree-sitt
 * Optional trailing `;` in `tuple_expression`, for correct function signatures.
 * Remove `juxtaposition_expression` since it makes `matrix_expression` unable to work.
 * Replace `"outer"` with `identifier` in `for_binding` to mimic soft keywords for recovery.
+* Fix `:function` quote expression bug.
